@@ -1,0 +1,40 @@
+form {
+    border: 1px dashed #000;
+    padding: 1em;
+    max-width: 600px;
+    margin: 2em auto;;
+    background: #f8f8f8;
+}
+
+fieldset {
+    margin: 0 0 1em;
+    background: #F0F0F0;
+}
+
+.error {
+    color: red;
+}
+
+.invalid {
+    /* Псевдокласс :invalid не используется; см. why-no...md*/
+    border-color: red;
+}
+
+.success {
+    color: blue;
+}
+
+label {
+    display: block;
+    cursor: pointer;
+}
+
+/* Scroll test */
+form.with-scroll {margin: 150vh 0;}
+/*form.with-scroll button {margin-bottom: 150vh;}*/
+
+.instead-of-form {
+    border: 2px solid grey;
+    background-color: #ffe4e9;
+    padding: 2em;
+}
