@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form validation test</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../lib.js"></script>
+</head>
+<body>
+  <form action="form-ajax.php">
+      <fieldset>
+          <div><b>Ключ ответа:</b></div>
+          <label>
+              <input type="radio" name="server_action" value="errors">
+              errors (проверка ошибок, значение по умолчанию)
+          </label>
+          <label>
+              <input type="radio" name="server_action" value="successMessage">
+              successMessage
+          </label>
+          <label>
+              <input type="radio" name="server_action" value="innerHTML">
+              innerHTML
+          </label>
+          <label>
+              <input type="radio" name="server_action" value="outerHTML">
+              outerHTML
+          </label>
+      </fieldset>
+
+      <div><input type="text" name="name" placeholder="имя"></div>
+      <div><input type="text" name="phone" placeholder="телефон"></div>
+      <div><input type="text" name="email" placeholder="email"></div>
+      <hr>
+      <div>
+          <label><input type="radio" name="choice" value="1">Раз</label>
+          <label><input type="radio" name="choice" value="2">Два</label>
+          <label>
+              <div>
+                <input type="radio" name="choice" value="3">Три
+              </div>
+          </label>
+      </div>
+      <hr>
+      <div>
+          <label><input type="checkbox" name="color[]" value="red">Red</label>
+          <label><input type="checkbox" name="color[]" value="green">Green</label>
+          <label><input type="checkbox" name="color[]" value="blue">Blue</label>
+      </div>
+      <hr>
+      <div>
+          <div>
+              <input type="text" name="promo_codes[]" placeholder="промо-код">
+          </div>
+      </div>
+      <hr>
+      <div>
+          <button type="submit" data-text_on_submit="Sending...">OK</button>
+          <button type="reset">Сбросить</button>
+      </div>
+  </form>
+
+  <script>
+    // var form = document.querySelector('form');
+    var form = $('form');
+
+    if (document.location.search.match(/scroll/)) {
+        // form.classList.add('with-scroll');
+        form.addClass('with-scroll');
+    }
+
+    new Freedom.FormsValidator(form, {
+        // errorBlock: {
+        //     openingTagTemplate: '<div style="background-color: yellow; ">',
+        // },
+        submitButton: {
+            // selector: 'wow',
+            // textOnSubmit: "Отправка...
+            // textOnSubmit: "Погнали...",
+        },
+        // commonMessagesBlock: {
+        //     locate: function () {
+        //
+        //     },
+        //     insert: function () {
+        //
+        //     }
+        //
+        // }
+        onEmptyErrors: function () {
+            console.log("That is onEmptyErrors!");
+        },
+
+        // onEmptyErrors: {
+        //     animation: {
+        //         type: "hide",
+        //         duration: 1000,
+        //         // delay: 2000
+        //     }
+        // },
+        // onEmptyErrors: function (form) {
+        //     form.after("<div>Да ладно!</div>");
+        // }
+        // invalidFieldClassName: '',
+    });
+    $(form).submit();
+  </script>
+</body>
+</html>

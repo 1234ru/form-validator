@@ -1,0 +1,14 @@
+{
+  "name": "one234ru/forms-validator",
+  "description": "HTML forms validation tool, both client- and server-side (PHP)",
+  "license": [ "GPL-3.0-or-later" ],
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "One234ru\\": "./"
+    }
+  },
+  "require": {
+    "php": ">=7.3"
+  }
+}
